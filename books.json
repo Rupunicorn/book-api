@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "The Hobbit",
+    "genre": "fantasy",
+    "rating": 4.4
+  },
+  {
+    "id": 2,
+    "title": "Dune",
+    "genre": "scifi",
+    "rating": 4.6
+  }
+]

@@ -1,10 +1,9 @@
 const API_URL = "https://book-api-production-0b17.up.railway.app";
 
-async function loadBooks(query="") {
+async function loadBooks(query="",filterType="title") {
   try {
-    const filterType = document.getElementById("filter-type").value;
     url = `${API_URL}/books`;
-    if (query) url += `?filterType=${encodeURIComponent(query)}`;
+    if (query) url += `?${filterType}=${encodeURIComponent(query)}`;
     const res = await fetch(url);
     const books = await res.json();
     displayBooks(books);
@@ -27,7 +26,8 @@ function displayBooks(books) {
 document.getElementById("search").addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
     const query = e.target.value.toLowerCase();
-    loadBooks(query);  // Pass query to loadBooks
+    const filterType = document.getElementById("filter-type").value;
+    loadBooks(query,filterType);  // Pass query to loadBooks
 }
 });
 

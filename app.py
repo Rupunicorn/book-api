@@ -1,13 +1,17 @@
 # app.py
 import os
 import json
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 
 app = Flask(__name__)
 
 # book data
 with open('books.json') as f:
      books = json.load(f)
+
+@app.route("/")
+def home():
+    return send_from_directory(".", "index.html")
 
 # Health check
 @app.route('/health')

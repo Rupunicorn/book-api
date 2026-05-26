@@ -2,7 +2,7 @@ const API_URL = "https://book-api-production-0b17.up.railway.app";
 
 async function loadBooks(query="",filterType="title") {
   try {
-    url = `${API_URL}/books`;
+    let url = `${API_URL}/books`;
     if (query) url += `?${filterType}=${encodeURIComponent(query)}`;
     const res = await fetch(url);
     const books = await res.json();

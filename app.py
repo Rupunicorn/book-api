@@ -13,6 +13,11 @@ with open('books.json') as f:
 def home():
     return send_from_directory(".", "index.html")
 
+# Serve static files (like script.js)
+@app.route("/<path:filename>")
+def static_files(filename):
+    return send_from_directory(".", filename)
+
 # Health check
 @app.route('/health')
 def health():

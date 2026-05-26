@@ -22,10 +22,11 @@ function displayBooks(books) {
   `).join("");
 }
 
+loadBooks(query,"");
 // Load books when text is entered and Enter key is pressed
 document.getElementById("search").addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
-    const query = e.target.value.toLowerCase();
+    const query = e.target.value.trim();
     const filterType = document.getElementById("filter-type").value;
     loadBooks(query,filterType);  // Pass query to loadBooks
 }
